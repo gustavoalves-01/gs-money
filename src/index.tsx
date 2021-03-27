@@ -5,7 +5,7 @@ import { createServer, Model } from 'miragejs';
 
 createServer({
   models: {
-    transactions: Model,
+    transaction: Model,
   },
 
   seeds(server) {
@@ -25,7 +25,7 @@ createServer({
         category: 'Casa',
         amount: 1100,
         createdAt: new Date('2021-02-14 11:00:00'),
-      },
+      }
       ],
     })
   },
@@ -34,7 +34,7 @@ createServer({
     this.namespace = 'api';
 
     this.get('/transactions', () => {
-      return this.schema.all('transactions')
+      return this.schema.all('transaction')
     })
 
     this.post('/transactions', (schema, request) => {
