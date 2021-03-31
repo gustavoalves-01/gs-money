@@ -52,7 +52,7 @@ export function NewTrasactionModal({ isOpen, onRequestClose }: NewTrasactionModa
                 <img src={closeImg} alt="Fechal modal" />
             </button>
             <Container onSubmit={handleCreateNewTransaction}>
-                <h2>Cadastrar Transação</h2>
+                <h2>Cadastrar<span>Transação</span></h2>
 
                 <input
                     placeholder="Título"

@@ -3,15 +3,16 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
 /** CSS Global Styles */
 :root {
-    --background: #F2F0F5;
-    --red: #E52E4D;
+    --background: #292929;
+    --red: #e0002d;
+;
     --blue: #34528A;
-    --green: #33CC95;
+    --green: #10c775;
 
-    --blue-light: #7D90B3;
+    --blue-light: #00aeff;
 
-    --text-title: #363F5F;
-    --text-body: #969CB3;
+    --text-title: #e3e3e3;
+    --text-body: #b3b3b3;
 
     --shape: #FFFFFF;    
 }
@@ -20,6 +21,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    &:focus{
+        outline: none;
+    }
 }
 
 html {
@@ -58,7 +63,9 @@ button {
 }
 
 .react-modal-overlay{
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.3);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px #FFFFFF;
 
     position: fixed;
     top: 0;
@@ -76,7 +83,8 @@ button {
     background: var(--background);
     padding: 3rem;
     position: relative;
-    border-radius: .5rem;
+    border-radius: 2rem;
+    align-items: center;
 }
 .react-modal-close{
     position: absolute;
@@ -85,10 +93,11 @@ button {
     border: 0;
     background: transparent;
 
-    transition: filter .3s ease-in-out;
+    transition: all .3s ease-in-out;
 
     &:hover{
-        filter: brightness(.8)
+        filter: brightness(.8);
+        transform: scale(1.2);
     }
 }
 `

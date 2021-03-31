@@ -1,24 +1,34 @@
 import styled from "styled-components";
-import { darken, transparentize } from 'polished';
+import { darken, lighten, transparentize } from 'polished';
 
 export const Container = styled.form`
 
 h2 {
     color: var(--text-title);
-    font-size: 1.5rem;
-    margin-bottom:2rem;
+    font-size: 1.9rem;
+    margin-top: 1rem;
+    margin-bottom:2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+
+    span{
+        font-weight:200;
+    }
 }
 
 input {
     width: 100%;
     padding: 0 1.5rem;
     height: 4rem;
+    border-radius: 50px;
     
-    border: 1px solid #d7d7d7;
-    background: #e7e9ee;
+    border: 1px solid #4d4d4d;
+    background: #333333;
 
     font-weight: 400;
     font-size: 1rem;
+    color: white;
 
     &::placeholder {
         color: var(--text-body);
@@ -27,23 +37,36 @@ input {
     & + input {
         margin-top: 1rem;
     }
+    &:focus{
+        border-color: var(--text-body);
+        box-shadow: 0 0 5px var(--text-body);
+    }
 }
 
 button[type="submit"] {
     width:100%;
     padding: 0 1.5rem;
     height: 4rem;
-    background: var(--green);
+    background-image: linear-gradient(to right, #12c9c9, #2abf77, #18ad65, #2bb673);
     color: #FFF;
-    border-radius: .25rem;
+    border-radius: 5rem;
     border: 0;
     font-size: 1rem;
     font-weight: 600;
     margin-top: 1.5rem;
-    transition: filter .3s ease-in-out;
+
+    background-size: 300% 100%;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 
     &:hover{
-        filter: brightness(.9)
+        background-position: 100% 0;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+
+
     }
 }
 
@@ -69,12 +92,13 @@ const colors = {
 
 export const RadioBox = styled.button<RadioBoxProps>`
     height:4rem;
-    border: 1px solid #d7d7d7;
-    border-radius: .25rem;
+    border: 1px solid #4d4d4d;
+    border-radius: 5rem;
+    color: var(--text-body);
 
     background: ${(props) => props.isActive
-        ? transparentize(0.9, colors[props.activeColor])
-        : 'transparent'};
+        ? transparentize(0.8, colors[props.activeColor])
+        : '#333333'};
 
     display: flex;
     align-items: center;
@@ -82,8 +106,12 @@ export const RadioBox = styled.button<RadioBoxProps>`
 
     transition: border-color .2s;
 
+    &:focus{
+        color: white;
+    }
+
     &:hover{
-        border-color: ${darken(0.1, '#d7d7d7')};
+       border-color: ${lighten(0.3, '#4d4d4d')};
     }
 
     img {
